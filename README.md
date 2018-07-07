@@ -1,1 +1,1 @@
-To Do
+Place into ’~/.local/share/plasma/plasmoids/’
