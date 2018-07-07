@@ -1,0 +1,28 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "marianarlt@icloud.com",
+                "Name": "Marian Arlt"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "Time displayed on a single line",
+        "Icon": "preferences-system-time",
+        "Id": "org.kde.plasma.inlineClock",
+        "License": "GPLv3",
+        "Name": "Inline Clock",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "1.0",
+        "Website": "plasma.kde.org"
+    },
+    "X-KDE-ParentApp": "",
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-Provides": [
+        "org.kde.plasma.time",
+        "org.kde.plasma.date"
+    ]
+}
