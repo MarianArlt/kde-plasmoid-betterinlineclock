@@ -1,1 +1,1 @@
-Place into ′~/.local/share/plasma/plasmoids/′
+Place into `~/.local/share/plasma/plasmoids/`
