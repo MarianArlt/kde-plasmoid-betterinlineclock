@@ -39,6 +39,7 @@ Item {
         } else if (plasmoid.configuration.dateFormat === "isoDate") {
             return Qt.ISODate;
         }
+
         return Qt.SystemLocaleShortDate;
     }
 
@@ -602,6 +603,8 @@ Item {
         if (main.showDate) {
             if (plasmoid.configuration.dateFormat === "mixedDate") {
                 dateLabel.text = Qt.formatDate(main.currentTime, "ddd, MMMM d ")
+            } else if (plasmoid.configuration.dateFormat === "customDate") {
+                dateLabel.text = Qt.formatDate(main.currentTime, plasmoid.configuration.customDateFormat + " ")
             } else {
                 dateLabel.text = Qt.formatDate(main.currentTime, main.dateFormat);
             }

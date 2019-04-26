@@ -43,6 +43,7 @@ Item {
 
     property alias cfg_showDate: showDate.checked
     property string cfg_dateFormat: "shortDate"
+    property alias cfg_customDateFormat: customDateFormat.text
     property alias cfg_use24hFormat: use24hFormat.checkedState
 
     onCfg_fontFamilyChanged: {
@@ -151,6 +152,10 @@ Item {
                             {
                                 'label': i18n("ISO Date"),
                                 'name': "isoDate"
+                            },
+                            {
+                                'label': i18n("Custom Format"),
+                                'name': "customDate"
                             }
                         ]
                         onCurrentIndexChanged: cfg_dateFormat = model[currentIndex]["name"]
@@ -162,6 +167,17 @@ Item {
                                 }
                             }
                         }
+                    }
+                }
+
+                QtLayouts.RowLayout {
+                    QtControls.Label {
+                        text: i18n("Custom format:")
+                    }
+
+                    QtControls.TextField {
+                        id: customDateFormat
+                        enabled: (showDate.checked && cfg_dateFormat == "customDate")
                     }
                 }
             }
