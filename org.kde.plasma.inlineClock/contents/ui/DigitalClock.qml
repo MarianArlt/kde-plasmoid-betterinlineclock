@@ -33,13 +33,21 @@ Item {
     property bool showSeconds: plasmoid.configuration.showSeconds
     property bool showLocalTimezone: plasmoid.configuration.showLocalTimezone
     property bool showDate: plasmoid.configuration.showDate
-    property int dateFormat: {
-        if (plasmoid.configuration.dateFormat === "longDate") {
-            return  Qt.SystemLocaleLongDate;
+    property bool showSeparator: plasmoid.configuration.showSeparator
+    property var dateFormat: {
+        if (plasmoid.configuration.dateFormat === "customDate") {
+            return plasmoid.configuration.customDateFormat; // str
+        } else if (plasmoid.configuration.dateFormat === "longDate") {
+            return Qt.SystemLocaleLongDate; // int
         } else if (plasmoid.configuration.dateFormat === "isoDate") {
-            return Qt.ISODate;
+            return Qt.ISODate; // int
+        } else if (plasmoid.configuration.dateFormat === "qtDate") {
+            return Qt.TextDate;
+        } else if (plasmoid.configuration.dateFormat === "rfcDate") {
+            return Qt.RFC2822Date;
+        } else { // "shortDate"
+            return Qt.SystemLocaleShortDate; // int
         }
-        return Qt.SystemLocaleShortDate;
     }
 
     property string lastSelectedTimezone: plasmoid.configuration.lastSelectedTimezone
@@ -104,38 +112,25 @@ Item {
                 Layout.fillWidth: false
                 Layout.minimumWidth: contentItem.width
                 Layout.maximumWidth: Layout.minimumWidth
-
             }
 
             PropertyChanges {
                 target: contentItem
 
-                height: sizehelper.height
-                width: dateLabel.width + dateLabel.anchors.rightMargin + labelsGrid.width
+                height: timeLabel.height + (main.showDate || timezoneLabel.visible ? 0.8 * timeLabel.height : 0)
+                width: Math.max(labelsGrid.width, timezoneLabel.paintedWidth, dateLabel.paintedWidth)
+            }
+
+            PropertyChanges {
+                target: labelsGrid
+
+                rows: main.showDate ? 1 : 2
             }
 
             AnchorChanges {
                 target: labelsGrid
 
-                anchors.right: contentItem.right
-            }
-
-            PropertyChanges {
-                target: dateLabel
-
-                height: timeLabel.height
-                width: dateLabel.paintedWidth
-
-                anchors.rightMargin: labelsGrid.columnSpacing
-
-                fontSizeMode: Text.VerticalFit
-            }
-
-            AnchorChanges {
-                target: dateLabel
-
-                anchors.right: labelsGrid.left
-                anchors.verticalCenter: labelsGrid.verticalCenter
+                anchors.horizontalCenter: contentItem.horizontalCenter
             }
 
             PropertyChanges {
@@ -144,26 +139,48 @@ Item {
                 height: sizehelper.height
                 width: sizehelper.contentWidth
 
-                fontSizeMode: Text.VerticalFit
+                font.pixelSize: timeLabel.height
             }
 
             PropertyChanges {
                 target: timezoneLabel
 
-                height: timeLabel.height
-                width: timezoneLabel.paintedWidth
+                height: main.showDate ? 0.7 * timeLabel.height : 0.8 * timeLabel.height
+                width: main.showDate ? timezoneLabel.paintedWidth : timeLabel.width
 
-                fontSizeMode: Text.VerticalFit
-                horizontalAlignment: Text.AlignHCenter
+                font.pixelSize: timezoneLabel.height
+            }
+
+            PropertyChanges {
+                target: dateLabel
+
+                height: 0.8 * timeLabel.height
+                width: dateLabel.paintedWidth
+
+                font.pixelSize: dateLabel.height
+            }
+
+            AnchorChanges {
+                target: dateLabel
+
+                anchors.top: labelsGrid.bottom
+                anchors.horizontalCenter: labelsGrid.horizontalCenter
             }
 
             PropertyChanges {
                 target: sizehelper
 
-                height: Math.min(main.height, 3 * theme.defaultFont.pixelSize)
+                /*
+                 * The value 0.71 was picked by testing to give the clock the right
+                 * size (aligned with tray icons).
+                 * Value 0.56 seems to be chosen rather arbitrary as well such that
+                 * the time label is slightly larger than the date or timezone label
+                 * and still fits well into the panel with all the applied margins.
+                 */
+                height: Math.min(main.showDate || timezoneLabel.visible ? main.height * 0.56 : main.height * 0.71,
+                                 3 * theme.defaultFont.pixelSize)
 
-                fontSizeMode: Text.VerticalFit
-                font.pixelSize: 3 * theme.defaultFont.pixelSize
+                font.pixelSize: sizehelper.height
             }
         },
 
@@ -462,7 +479,7 @@ Item {
             Rectangle {
                 height: 0.8 * sizehelper.height
                 width: 1
-                visible: main.showDate && main.oneLineMode
+                visible: main.showDate && main.showSeparator && main.oneLineMode
 
                 color: theme.textColor
                 opacity: 0.4
@@ -600,11 +617,7 @@ Item {
 
 
         if (main.showDate) {
-            if (plasmoid.configuration.dateFormat === "mixedDate") {
-                dateLabel.text = Qt.formatDate(main.currentTime, "ddd, MMMM d ")
-            } else {
-                dateLabel.text = Qt.formatDate(main.currentTime, main.dateFormat);
-            }
+            dateLabel.text = Qt.formatDate(main.currentTime, main.dateFormat);
         } else {
             // clear it so it doesn't take space in the layout
             dateLabel.text = "";

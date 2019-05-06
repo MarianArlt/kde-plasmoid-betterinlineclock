@@ -21,11 +21,12 @@
  */
 
 import QtQuick 2.0
-import QtQuick.Controls 1.0 as QtControls
+import QtQuick.Controls 2.3 as QtControls
 import QtQuick.Layouts 1.0 as QtLayouts
 import org.kde.plasma.calendar 2.0 as PlasmaCalendar
+import org.kde.kirigami 2.5 as Kirigami
 
-Item {
+QtLayouts.ColumnLayout {
     id: appearancePage
     width: childrenRect.width
     height: childrenRect.height
@@ -42,8 +43,10 @@ Item {
     property alias cfg_showSeconds: showSeconds.checked
 
     property alias cfg_showDate: showDate.checked
+    property alias cfg_showSeparator: showSeparator.checked
     property string cfg_dateFormat: "shortDate"
-    property alias cfg_use24hFormat: use24hFormat.checkedState
+    property alias cfg_customDateFormat: customDateFormat.text
+    property alias cfg_use24hFormat: use24hFormat.checkState
 
     onCfg_fontFamilyChanged: {
         // HACK by the time we populate our model and/or the ComboBox is finished the value is still undefined
@@ -72,111 +75,137 @@ Item {
         }
     }
 
-    QtLayouts.ColumnLayout {
-        anchors.left: parent.left
+    Kirigami.FormLayout {
+        QtLayouts.Layout.fillWidth: true
 
-        QtControls.GroupBox {
-            QtLayouts.Layout.fillWidth: true
-            title: i18n("Information")
-            flat: true
+        QtControls.CheckBox {
+            id: showDate
+            Kirigami.FormData.label: i18n("Information:")
+            text: i18n("Show date")
+        }
 
-            QtLayouts.ColumnLayout {
-                QtControls.CheckBox {
-                    id: showDate
-                    text: i18n("Show date")
+        QtControls.CheckBox {
+            id: showSeparator
+            enabled: cfg_showDate
+            text: i18n("Show Separator")
+        }
+
+        QtControls.CheckBox {
+            id: showSeconds
+            text: i18n("Show seconds")
+        }
+
+        QtControls.CheckBox {
+            id: use24hFormat
+            text: i18nc("Checkbox label; means 24h clock format, without am/pm", "Use 24-hour Clock")
+            tristate: true
+        }
+
+        QtControls.CheckBox {
+            id: showLocalTimezone
+            text: i18n("Show local time zone")
+        }
+
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
+        QtLayouts.ColumnLayout {
+            Kirigami.FormData.label: i18n("Display time zone as:")
+            Kirigami.FormData.buddyFor: timezoneCityRadio
+
+            QtControls.RadioButton {
+                id: timezoneCityRadio
+                text: i18n("Time zone city")
+            }
+
+            QtControls.RadioButton {
+                id: timezoneCodeRadio
+                text: i18n("Time zone code")
+            }
+        }
+
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
+        QtControls.ComboBox {
+            id: dateFormat
+            Kirigami.FormData.label: i18n("Date format:")
+            enabled: showDate.checked
+            QtLayouts.Layout.fillWidth: cfg_dateFormat == "customDate" ? true : false
+            textRole: "label"
+            model: [
+                {
+                    'label': i18n("Long Date"),
+                    'name': "longDate"
+                },
+                {
+                    'label': i18n("Short Date"),
+                    'name': "shortDate"
+                },
+                {
+                    'label': i18n("ISO Date"),
+                    'name': "isoDate"
+                },
+                {
+                    'label': i18n("Qt Date"),
+                    'name': "qtDate"
+                },
+                {
+                    'label': i18n("RFC Date"),
+                    'name': "rfcDate"
+                },
+                {
+                    'label': i18nc("custom date format", "Custom Date"),
+                    'name': "customDate"
                 }
+            ]
+            onCurrentIndexChanged: cfg_dateFormat = model[currentIndex]["name"]
 
-                QtControls.CheckBox {
-                    id: showSeconds
-                    text: i18n("Show seconds")
-                }
-
-                QtControls.CheckBox {
-                    id: use24hFormat
-                    text: i18nc("Checkbox label; means 24h clock format, without am/pm", "Use 24-hour Clock")
-                }
-
-                QtControls.CheckBox {
-                    id: showLocalTimezone
-                    text: i18n("Show local time zone")
-                }
-
-                QtControls.Label {
-                    text: i18n("Display time zone as:")
-                }
-
-                QtControls.GroupBox {
-                    QtLayouts.Layout.fillWidth: true
-                    flat: true
-                    QtLayouts.ColumnLayout {
-
-                        QtControls.ExclusiveGroup { id: timezoneDisplayType }
-
-                        QtControls.RadioButton {
-                            id: timezoneCityRadio
-                            text: i18n("Time zone city")
-                            exclusiveGroup: timezoneDisplayType
-                        }
-
-                        QtControls.RadioButton {
-                            id: timezoneCodeRadio
-                            text: i18n("Time zone code")
-                            exclusiveGroup: timezoneDisplayType
-                        }
-                    }
-                }
-
-                QtLayouts.RowLayout {
-                    QtControls.Label {
-                        text: i18n("Date format:")
-                    }
-
-                    QtControls.ComboBox {
-                        id: dateFormat
-                        enabled: showDate.checked
-                        textRole: "label"
-                        model: [
-                            {
-                                'label': i18n("Long Date"),
-                                'name': "longDate"
-                            },
-                            {
-                                'label': i18n("Mixed Date"),
-                                'name': "mixedDate"
-                            },
-                            {
-                                'label': i18n("Short Date"),
-                                'name': "shortDate"
-                            },
-                            {
-                                'label': i18n("ISO Date"),
-                                'name': "isoDate"
-                            }
-                        ]
-                        onCurrentIndexChanged: cfg_dateFormat = model[currentIndex]["name"]
-
-                        Component.onCompleted: {
-                            for (var i = 0; i < model.length; i++) {
-                                if (model[i]["name"] == plasmoid.configuration.dateFormat) {
-                                    dateFormat.currentIndex = i;
-                                }
-                            }
-                        }
+            Component.onCompleted: {
+                for (var i = 0; i < model.length; i++) {
+                    if (model[i]["name"] == plasmoid.configuration.dateFormat) {
+                        dateFormat.currentIndex = i;
                     }
                 }
             }
         }
 
+        QtControls.TextField {
+            id: customDateFormat
+            QtLayouts.Layout.fillWidth: true
+            visible: cfg_dateFormat == "customDate"
+        }
+
+        QtControls.Label {
+            text: i18n("<a href=\"http://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method\">Time Format Documentation</a>")
+            visible: cfg_dateFormat == "customDate"
+            wrapMode: Text.Wrap
+            QtLayouts.Layout.preferredWidth: QtLayouts.Layout.maximumWidth
+            QtLayouts.Layout.maximumWidth: units.gridUnit * 16
+
+            onLinkActivated: Qt.openUrlExternally(link)
+            MouseArea {
+                anchors.fill: parent
+                acceptedButtons: Qt.NoButton // We don't want to eat clicks on the Label
+                cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+            }
+        }
+
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
         QtLayouts.RowLayout {
             QtLayouts.Layout.fillWidth: true
 
-            QtControls.Label {
-                text: i18n("Font style:")
-            }
+            Kirigami.FormData.label: i18n("Font style:")
 
             QtControls.ComboBox {
                 id: fontFamilyComboBox
                 QtLayouts.Layout.fillWidth: true
+                currentIndex: 0
                 // ComboBox's sizing is just utterly broken
                 QtLayouts.Layout.minimumWidth: units.gridUnit * 10
                 model: fontsModel
@@ -194,20 +223,27 @@ Item {
 
             QtControls.Button {
                 id: boldCheckBox
-                tooltip: i18n("Bold text")
-                iconName: "format-text-bold"
+                QtControls.ToolTip {
+                    text: i18n("Bold text")
+                }
+                icon.name: "format-text-bold"
                 checkable: true
                 Accessible.name: tooltip
             }
 
             QtControls.Button {
                 id: italicCheckBox
-                tooltip: i18n("Italic text")
-                iconName: "format-text-italic"
+                QtControls.ToolTip {
+                    text: i18n("Italic text")
+                }
+                icon.name: "format-text-italic"
                 checkable: true
                 Accessible.name: tooltip
             }
         }
+    }
+    Item {
+        QtLayouts.Layout.fillHeight: true
     }
 
     Component.onCompleted: {
