@@ -1,15 +1,13 @@
 [Desktop Entry]
-Name=Inline Clock
-Name[de]=Inline Uhr
-Name[en_GB]=Inline Clock
-Name[es]=Reloj linear
-Name[x-test]=xxInline Clockxx時鐘
+Name=Chili Clock
+Name[de]=Chili Uhr
+Name[es]=Reloj Chili
+Name[x-test]=xxChili Clockxx時鐘
 
-Comment=Time and date in a single line
-Comment[de]=Zeit und Datum auf einer Linie.
-Comment[en_GB]=Time and date in a single line
-Comment[es]=Hora y fecha en una sola línea
-Comment[x-test]=xxTime and date in a single linexx
+Comment=The hottest clock on a single line!
+Comment[de]=Die schärfste Uhr in einer Zeile!
+Comment[es]=La hora más picosa en una sola linea!
+Comment[x-test]=xxThe hottest clock on a single line!xx
 
 Icon=org.kde.plasma.digitalclock
 Type=Service
@@ -17,7 +15,7 @@ X-KDE-ParentApp=
 X-KDE-PluginInfo-Author=Marian Arlt
 X-KDE-PluginInfo-Email=marianarlt@icloud.com
 X-KDE-PluginInfo-License=GPL-3.0-or-later
-X-KDE-PluginInfo-Name=org.kde.plasma.inlineClock
+X-KDE-PluginInfo-Name=org.kde.plasma.chiliclock
 X-KDE-PluginInfo-Version=2.0
 X-KDE-PluginInfo-Website=plasma.kde.org
 X-KDE-ServiceTypes=Plasma/Applet
