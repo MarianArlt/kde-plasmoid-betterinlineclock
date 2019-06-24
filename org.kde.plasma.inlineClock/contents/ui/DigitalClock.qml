@@ -127,8 +127,11 @@ Item {
         id: paintArea
 
         spacing: sizehelper.height * ( plasmoid.configuration.customSpacing / 10 )
-        anchors.centerIn: parent
-        transform: Translate { y: -plasmoid.configuration.customOffset }
+        anchors {
+            centerIn: parent
+            horizontalCenterOffset: plasmoid.configuration.customOffsetX - 50
+            verticalCenterOffset: -plasmoid.configuration.customOffsetY
+        }
 
         Components.Label {
             id: dateLabel
@@ -223,7 +226,7 @@ Item {
         var timezoneString = "";
         if (showTimezone) {
             timezoneString = plasmoid.configuration.displayTimezoneAsCode ? dataSource.data[plasmoid.configuration.lastSelectedTimezone]["Timezone Abbreviation"] : TimezonesI18n.i18nCity(dataSource.data[plasmoid.configuration.lastSelectedTimezone]["Timezone City"]);
-            timezoneLabel.text = " (" + timezoneString + ")";
+            timezoneLabel.text = "(" + timezoneString + ")";
         } else { timezoneLabel.text = timezoneString; }
         if (main.showDate) { dateLabel.text = Qt.formatDate(main.currentTime, main.dateFormat);
         } else { dateLabel.text = ""; }

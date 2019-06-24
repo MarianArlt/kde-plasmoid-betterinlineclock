@@ -46,7 +46,8 @@ QtLayouts.ColumnLayout {
     property alias cfg_customSpacing: customSpacing.value
     property alias cfg_fixedFont: fixedFont.checked
     property alias cfg_fontSize: fontSize.value
-    property alias cfg_customOffset: customOffset.value
+    property alias cfg_customOffsetY: customOffsetY.value
+    property alias cfg_customOffsetX: customOffsetX.value
 
     onCfg_fontFamilyChanged: {
         // HACK by the time we populate our model and/or the ComboBox is finished the value is still undefined
@@ -282,24 +283,50 @@ QtLayouts.ColumnLayout {
                 QtLayouts.Layout.fillWidth: true
 
             }
+
+            QtControls.Button {
+                id: resetCustomSpacing
+                text: i18n("Reset")
+                onClicked: customSpacing.value = 1
+            }
         }
 
         QtLayouts.RowLayout {
             QtLayouts.Layout.fillWidth: true
 
             Kirigami.FormData.label: i18n("Vertical Offset:")
-            Kirigami.FormData.buddyFor: customOffset
+            Kirigami.FormData.buddyFor: customOffsetY
 
             QtControls.SpinBox {
-                id: customOffset
+                id: customOffsetY
                 from: -10
                 to: 10
                 editable: true
                 validator: IntValidator {
-                    locale: control.locale.name
-                    bottom: Math.min(control.from, control.to)
-                    top: Math.max(control.from, control.to)
+                    locale: customOffsetY.locale.name
+                    bottom: Math.min(customOffsetY.from, customOffsetY.to)
+                    top: Math.max(customOffsetY.from, customOffsetY.to)
                 }
+            }
+        }
+
+        QtLayouts.RowLayout {
+            QtLayouts.Layout.fillWidth: true
+
+            Kirigami.FormData.label: i18n("Horizontal Offset:")
+            Kirigami.FormData.buddyFor: customOffsetX
+
+            QtControls.Slider {
+                id: customOffsetX
+                from: 0
+                to: 100
+                QtLayouts.Layout.fillWidth: true
+            }
+
+            QtControls.Button {
+                id: resetOffsetX
+                text: i18n("Reset")
+                onClicked: customOffsetX.value = 50
             }
         }
 

@@ -81,9 +81,13 @@
       <label>How much spacing is added between time and date</label>
       <default>1</default>
     </entry>
-    <entry name="customOffset" type="Int">
+    <entry name="customOffsetY" type="Int">
       <label>How much vertical offset is added to the whole clock</label>
       <default>0</default>
+    </entry>
+    <entry name="customOffsetX" type="Double">
+      <label>How much horizontal offset is added to the whole clock</label>
+      <default>50</default>
     </entry>
     <entry name="enabledCalendarPlugins" type="StringList">
       <label>A list of plugins where additional calendar event data can be sourced.</label>
