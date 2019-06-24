@@ -4,6 +4,10 @@
             {
                 "Email": "mklapetek@kde.org",
                 "Name": "Martin Klapetek"
+            },
+            {
+                "Email": "marianarlt@icloud.com",
+                "Name": "Marian Arlt"
             }
         ],
         "Category": "Date and Time",
@@ -11,9 +15,9 @@
         "Description[de]": "Zeigt die Uhrzeit in digitaler Form an.",
         "Description[en_GB]": "Time and date in a single line",
         "Description[es]": "Hora y fecha en una sola línea",
-        "Icon": "preferences-system-time",
+        "Icon": "org.kde.plasma.digitalclock",
         "Id": "org.kde.plasma.inlineClock",
-        "License": "GPL-2.0+",
+        "License": "GPL-3.0-or-later",
         "Name": "Inline Clock",
         "Name[de]": "Inline Uhr",
         "Name[en_GB]": "Inline Clock",
@@ -22,7 +26,7 @@
         "ServiceTypes": [
             "Plasma/Applet"
         ],
-        "Version": "0.2",
+        "Version": "2.0",
         "Website": "plasma.kde.org"
     },
     "X-KDE-ParentApp": "",

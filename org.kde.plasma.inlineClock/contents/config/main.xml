@@ -16,15 +16,15 @@
     </entry>
     <entry name="showDate" type="Bool">
       <label>Whether the date should be shown next to the clock.</label>
-      <default>false</default>
+      <default>true</default>
     </entry>
     <entry name="showSeparator" type="Bool">
       <label>Whether a separator should be shown between date and time.</label>
-      <default>false</default>
+      <default>true</default>
     </entry>
     <entry name="dateFormat" type="string">
       <label>The date format to display. Options are: shortDate, longDate, isoDate, qtDate, rfcDate or customDate.</label>
-      <default>shortDate</default>
+      <default>rfcDate</default>
     </entry>
     <entry name="customDateFormat" type="string">
       <label>Custom date format string.</label>
@@ -33,6 +33,14 @@
     <entry name="fontFamily" type="string">
       <label>Font family. e.g "arial". The system font is used if this is not set.</label>
       <default></default>
+    </entry>
+    <entry name="fixedFont" type="Bool">
+      <label>Whether a fixed font size should be used instead of resizing.</label>
+      <default>false</default>
+    </entry>
+    <entry name="fontSize" type="Int">
+      <label>Font size. The system font size is used if this is not set.</label>
+      <default>10</default>
     </entry>
     <entry name="boldText" type="Bool">
       <label>Sets the font to bold.</label>
@@ -49,7 +57,7 @@
       <label>A list of the time zones available on mouse wheel. Requires wheelChangesTimezone to be true. Format is "Europe/London". Special entry "Local" indicates system time zone.</label>
       <default>Local</default>
     </entry>
-    <entry name="lastSelectedTimezone" type="String">
+    <entry name="lastSelectedTimezone" type="string">
       <label>When multiple time zones are configured, this is the one shown on widget restore.</label>
       <default>Local</default>
     </entry>
@@ -68,6 +76,14 @@
     <entry name="use24hFormat" type="UInt">
       <label>Force the clock to use 12/24 hour time, instead of following the user locale.</label>
       <default>1</default>
+    </entry>
+    <entry name="customSpacing" type="Double">
+      <label>How much spacing is added between time and date</label>
+      <default>1</default>
+    </entry>
+    <entry name="customOffset" type="Int">
+      <label>How much vertical offset is added to the whole clock</label>
+      <default>0</default>
     </entry>
     <entry name="enabledCalendarPlugins" type="StringList">
       <label>A list of plugins where additional calendar event data can be sourced.</label>

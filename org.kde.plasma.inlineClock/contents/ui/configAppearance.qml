@@ -28,25 +28,25 @@ import org.kde.kirigami 2.5 as Kirigami
 
 QtLayouts.ColumnLayout {
     id: appearancePage
-    width: childrenRect.width
-    height: childrenRect.height
 
     signal configurationChanged
 
     property string cfg_fontFamily
-    property alias cfg_boldText: boldCheckBox.checked
     property string cfg_timeFormat: ""
+    property string cfg_dateFormat: "shortDate"
+    property alias cfg_boldText: boldCheckBox.checked
     property alias cfg_italicText: italicCheckBox.checked
-
     property alias cfg_showLocalTimezone: showLocalTimezone.checked
     property alias cfg_displayTimezoneAsCode: timezoneCodeRadio.checked
     property alias cfg_showSeconds: showSeconds.checked
-
     property alias cfg_showDate: showDate.checked
     property alias cfg_showSeparator: showSeparator.checked
-    property string cfg_dateFormat: "shortDate"
     property alias cfg_customDateFormat: customDateFormat.text
     property alias cfg_use24hFormat: use24hFormat.checkState
+    property alias cfg_customSpacing: customSpacing.value
+    property alias cfg_fixedFont: fixedFont.checked
+    property alias cfg_fontSize: fontSize.value
+    property alias cfg_customOffset: customOffset.value
 
     onCfg_fontFamilyChanged: {
         // HACK by the time we populate our model and/or the ComboBox is finished the value is still undefined
@@ -106,6 +106,31 @@ QtLayouts.ColumnLayout {
             text: i18n("Show local time zone")
         }
 
+        QtControls.CheckBox {
+            id: fixedFont
+            text: i18n("Use fixed font size")
+        }
+
+        QtLayouts.RowLayout {
+            QtLayouts.Layout.fillWidth: true
+
+            Kirigami.FormData.label: i18n("Font Size:")
+            Kirigami.FormData.buddyFor: fontSize
+
+            QtControls.SpinBox {
+                id: fontSize
+                enabled: cfg_fixedFont
+                from: 1
+                to: 60
+                editable: true
+                validator: IntValidator {
+                    locale: control.locale.name
+                    bottom: Math.min(control.from, control.to)
+                    top: Math.max(control.from, control.to)
+                }
+            }
+        }
+
         Item {
             Kirigami.FormData.isSection: true
         }
@@ -133,7 +158,8 @@ QtLayouts.ColumnLayout {
             id: dateFormat
             Kirigami.FormData.label: i18n("Date format:")
             enabled: showDate.checked
-            QtLayouts.Layout.fillWidth: cfg_dateFormat == "customDate" ? true : false
+            // QtLayouts.Layout.fillWidth: cfg_dateFormat == "customDate" ? true : false
+            QtLayouts.Layout.fillWidth: true
             textRole: "label"
             model: [
                 {
@@ -182,9 +208,6 @@ QtLayouts.ColumnLayout {
             text: i18n("<a href=\"http://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method\">Time Format Documentation</a>")
             visible: cfg_dateFormat == "customDate"
             wrapMode: Text.Wrap
-            QtLayouts.Layout.preferredWidth: QtLayouts.Layout.maximumWidth
-            QtLayouts.Layout.maximumWidth: units.gridUnit * 16
-
             onLinkActivated: Qt.openUrlExternally(link)
             MouseArea {
                 anchors.fill: parent
@@ -241,7 +264,47 @@ QtLayouts.ColumnLayout {
                 Accessible.name: tooltip
             }
         }
+
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
+        QtLayouts.RowLayout {
+            QtLayouts.Layout.fillWidth: true
+
+            Kirigami.FormData.label: i18n("Spacing:")
+            Kirigami.FormData.buddyFor: customSpacing
+
+            QtControls.Slider {
+                id: customSpacing
+                from: 0
+                to: 10
+                QtLayouts.Layout.fillWidth: true
+
+            }
+        }
+
+        QtLayouts.RowLayout {
+            QtLayouts.Layout.fillWidth: true
+
+            Kirigami.FormData.label: i18n("Vertical Offset:")
+            Kirigami.FormData.buddyFor: customOffset
+
+            QtControls.SpinBox {
+                id: customOffset
+                from: -10
+                to: 10
+                editable: true
+                validator: IntValidator {
+                    locale: control.locale.name
+                    bottom: Math.min(control.from, control.to)
+                    top: Math.max(control.from, control.to)
+                }
+            }
+        }
+
     }
+
     Item {
         QtLayouts.Layout.fillHeight: true
     }
