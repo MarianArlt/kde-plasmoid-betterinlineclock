@@ -126,7 +126,10 @@ Item {
     Row {
         id: paintArea
 
-        spacing: sizehelper.height * ( plasmoid.configuration.customSpacing / 10 )
+        spacing: plasmoid.configuration.customSpacing * 2
+        leftPadding: spacing
+        rightPadding: spacing
+        
         anchors {
             centerIn: parent
             horizontalCenterOffset: plasmoid.configuration.customOffsetX - 50
