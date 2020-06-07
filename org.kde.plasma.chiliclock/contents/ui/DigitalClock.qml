@@ -161,7 +161,7 @@ Item {
             id: timeLabel
 
             height: sizehelper.height
-            width: !use24hFormat || use24hFormat === Qt.PartiallyChecked ? sizehelper.contentWidth - separator.paintedWidth : sizehelper.contentWidth
+            width: timeLabel.paintedWidth
             font: main.font
             fontSizeMode: fixedFont ? Text.FixedSize : Text.VerticalFit
             minimumPixelSize: 1
