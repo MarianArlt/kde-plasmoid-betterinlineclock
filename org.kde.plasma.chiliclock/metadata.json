@@ -11,22 +11,21 @@
             }
         ],
         "Category": "Date and Time",
-        "Description": "The hottest clock on a single line!",
-        "Description[de]": "Die schärfste Uhr in einer Zeile!",
-        "Description[es]": "La hora más picosa en una sola linea!",
+        "Description": "Your usual clock, just better and on one line!",
+        "Description[de]": "Deine normale Uhr, nur besser und auf einer Zeile!",
+        "Description[es]": "El reloj de siempre, sólo mejor y en una sola línea!",
         "Icon": "org.kde.plasma.digitalclock",
-        "Id": "org.kde.plasma.chiliclock",
+        "Id": "org.kde.plasma.betterinlineclock",
         "License": "GPL-3.0-or-later",
-        "Name": "Chili Clock",
-        "Name[de]": "Chili Uhr",
-        "Name[en_GB]": "Chili Clock",
-        "Name[es]": "Reloj Chili",
-        "Name[x-test]": "xxChili Clockxx",
+        "Name": "Better inline clock",
+        "Name[de]": "Bessere inline Uhr",
+        "Name[es]": "Mejor reloj en línea",
+        "Name[x-test]": "xxBetter inline clockxx",
         "ServiceTypes": [
             "Plasma/Applet"
         ],
-        "Version": "2.0",
-        "Website": "plasma.kde.org"
+        "Version": "3.0",
+        "Website": "https://www.pling.com/p/1245902"
     },
     "X-KDE-ParentApp": "",
     "X-Plasma-API": "declarativeappletscript",
