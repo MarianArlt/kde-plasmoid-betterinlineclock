@@ -1,7 +1,8 @@
-2020/06/23 - version 3.0
+2020/06/23 - version 3.1
 
 * improved:
   - spacing option now changes all spaces including outer padding
+  - option to disable calendar view borders
 
 * fixed known bugs:
   - padding not pushing other widgets correctly, resulting in overlap
