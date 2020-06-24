@@ -351,7 +351,7 @@ Item {
 
         PlasmaCalendar.MonthView {
             id: monthView
-            borderOpacity: 0.25
+            borderOpacity: plasmoid.configuration.showBorders ? 0.25 : 0
             today: root.tzDate
             showWeekNumbers: plasmoid.configuration.showWeekNumbers
             anchors.fill: parent

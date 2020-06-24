@@ -54,6 +54,16 @@ Item {
             Kirigami.FormData.isSection: true
         }
 
+        QtControls.CheckBox {
+            id: showBorders
+            Kirigami.FormData.label: i18n("Visuals:")
+            text: i18n("Show borders")
+        }
+
+        Item {
+            Kirigami.FormData.isSection: true
+        }
+
         QtLayouts.ColumnLayout {
             Kirigami.FormData.label: i18n("Available Plugins:")
             Kirigami.FormData.buddyFor: children[1] // 0 is the Repeater
