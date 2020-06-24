@@ -1,3 +1,13 @@
+2020/06/23 - version 3.0
+
+* improved:
+  - spacing option now changes all spaces including outer padding
+
+* fixed known bugs:
+  - padding not pushing other widgets correctly, resulting in overlap
+  - AM/PM label messing with padding additionally
+
+
 2019/06/23 - version 2.0
 
 * massive options overhaul
