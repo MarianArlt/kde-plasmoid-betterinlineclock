@@ -52,6 +52,7 @@ Item {
     Plasmoid.preferredRepresentation: Plasmoid.compactRepresentation
     Plasmoid.compactRepresentation: DigitalClock { }
     Plasmoid.fullRepresentation: CalendarView { }
+    Plasmoid.backgroundHints: PlasmaCore.Types.DefaultBackground | PlasmaCore.Types.ConfigurableBackground
 
     Plasmoid.toolTipItem: Loader {
         id: tooltipLoader
