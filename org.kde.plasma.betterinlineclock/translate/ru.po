@@ -1,0 +1,217 @@
+# Translation of betterinlineclock in Russian
+# Copyright (C) 2023
+# This file is distributed under the same license as the betterinlineclock package.
+# Mykhailo Stetsiuk <yaBobJonez@gmail.com>, 2023.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: betterinlineclock\n"
+"Report-Msgid-Bugs-To: plasma.kde.org\n"
+"POT-Creation-Date: 2023-07-23 20:31+0300\n"
+"PO-Revision-Date: 2023-07-23 21:16+0300\n"
+"Last-Translator: Mykhailo Stetsiuk <yaBobJonez@gmail.com>\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../metadata.desktop
+msgid "Better inline clock"
+msgstr "Better inline clock"
+
+#: ../metadata.desktop
+msgid "Your usual clock, just better and on one line!"
+msgstr "Ваши обычные часы, но лучше и в одну строку!"
+
+#: ../contents/config/config.qml
+msgid "Appearance"
+msgstr "Вид"
+
+#: ../contents/config/config.qml
+msgid "Calendar"
+msgstr "Календарь"
+
+#: ../contents/config/config.qml
+msgid "Time Zones"
+msgstr "Часовые пояса"
+
+#: ../contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr "Сегодня нет событий"
+
+#: ../contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr "В этот день нет событий"
+
+#: ../contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr "Держать открытым"
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "Use default font"
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Information:"
+msgstr "Информация:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show date"
+msgstr "Отображать дату"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show Separator"
+msgstr "Отображать разделитель"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show seconds"
+msgstr "Отображать секунды"
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "Checkbox label; means 24h clock format, without am/pm"
+msgid "Use 24-hour Clock"
+msgstr "Использовать 24-часовой формат"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show local time zone"
+msgstr "Показывать местный часовой пояс"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Use fixed font size"
+msgstr "Использовать фиксированный размер шрифта"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Font Size:"
+msgstr "Размер шрифта:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Display time zone as:"
+msgstr "Показывать часовой пояс как:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Time zone city"
+msgstr "Город часового пояса"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Time zone code"
+msgstr "Код часового пояса"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Date format:"
+msgstr "Формат даты:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Long Date"
+msgstr "Длинный"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Short Date"
+msgstr "Короткий"
+
+#: ../contents/ui/configAppearance.qml
+msgid "ISO Date"
+msgstr "ISO"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Qt Date"
+msgstr "Qt"
+
+#: ../contents/ui/configAppearance.qml
+msgid "RFC Date"
+msgstr "RFC"
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "custom date format"
+msgid "Custom Date"
+msgstr "Пользовательский"
+
+#: ../contents/ui/configAppearance.qml
+msgid "<a href=\"http://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method\">Time Format Documentation</a>"
+msgstr "<a href=\"http://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method\">Документация о форматировании</a>"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Font style:"
+msgstr "Стиль шрифта:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Bold text"
+msgstr "Полужирный"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Italic text"
+msgstr "Наклонный"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Spacing:"
+msgstr "Отступы:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Reset"
+msgstr "Очистить"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Vertical Offset:"
+msgstr "Вертикальное смещение:"
+
+#: ../contents/ui/configAppearance.qml
+msgid "Horizontal Offset:"
+msgstr "Горизонтальное смещение:"
+
+#: ../contents/ui/configCalendar.qml
+msgid "General:"
+msgstr "Общее:"
+
+#: ../contents/ui/configCalendar.qml
+msgid "Show week numbers"
+msgstr "Отображать номеры недель"
+
+#: ../contents/ui/configCalendar.qml
+msgid "Visuals:"
+msgstr "Дизайн:"
+
+#: ../contents/ui/configCalendar.qml
+msgid "Show borders"
+msgstr "Отображать края"
+
+#: ../contents/ui/configCalendar.qml
+msgid "Available Plugins:"
+msgstr "Доступные плагины:"
+
+#: ../contents/ui/configTimeZones.qml
+msgid "At least one time zone needs to be enabled. 'Local' was enabled automatically."
+msgstr "Необходимо выбрать как минимум один часовой пояс. Автоматически был выбран 'Местный'."
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Search Time Zones"
+msgstr "Искать часовые пояса"
+
+#: ../contents/ui/configTimeZones.qml
+msgid "City"
+msgstr "Город"
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Region"
+msgstr "Регион"
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Comment"
+msgstr "Комментарий"
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Switch time zone with mouse wheel"
+msgstr "Переключать часовые пояса колёсиком мыши"
+
+#: ../contents/ui/main.qml
+msgid "Copy to Clipboard"
+msgstr "Копировать в буфер обмена"
+
+#: ../contents/ui/main.qml
+msgid "Adjust Date and Time..."
+msgstr "Настроить дату и время..."
+
+#: ../contents/ui/main.qml
+msgid "Set Time Format..."
+msgstr "Установить формат времени..."
