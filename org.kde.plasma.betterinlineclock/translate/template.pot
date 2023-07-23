@@ -1,0 +1,217 @@
+# Translation of betterinlineclock in LANGUAGE
+# Copyright (C) 2023
+# This file is distributed under the same license as the betterinlineclock package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: betterinlineclock\n"
+"Report-Msgid-Bugs-To: plasma.kde.org\n"
+"POT-Creation-Date: 2023-07-23 20:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../metadata.desktop
+msgid "Better inline clock"
+msgstr ""
+
+#: ../metadata.desktop
+msgid "Your usual clock, just better and on one line!"
+msgstr ""
+
+#: ../contents/config/config.qml
+msgid "Appearance"
+msgstr ""
+
+#: ../contents/config/config.qml
+msgid "Calendar"
+msgstr ""
+
+#: ../contents/config/config.qml
+msgid "Time Zones"
+msgstr ""
+
+#: ../contents/ui/CalendarView.qml
+msgid "No events for today"
+msgstr ""
+
+#: ../contents/ui/CalendarView.qml
+msgid "No events for this day"
+msgstr ""
+
+#: ../contents/ui/CalendarView.qml
+msgid "Keep Open"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "Use default font"
+msgid "Default"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Information:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show Separator"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show seconds"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "Checkbox label; means 24h clock format, without am/pm"
+msgid "Use 24-hour Clock"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Show local time zone"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Use fixed font size"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Font Size:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Display time zone as:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Time zone city"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Time zone code"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Date format:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Long Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Short Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "ISO Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Qt Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "RFC Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgctxt "custom date format"
+msgid "Custom Date"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "<a href=\"http://doc.qt.io/qt-5/qml-qtqml-qt.html#formatDateTime-method\">Time Format Documentation</a>"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Font style:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Bold text"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Italic text"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Spacing:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Reset"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Vertical Offset:"
+msgstr ""
+
+#: ../contents/ui/configAppearance.qml
+msgid "Horizontal Offset:"
+msgstr ""
+
+#: ../contents/ui/configCalendar.qml
+msgid "General:"
+msgstr ""
+
+#: ../contents/ui/configCalendar.qml
+msgid "Show week numbers"
+msgstr ""
+
+#: ../contents/ui/configCalendar.qml
+msgid "Visuals:"
+msgstr ""
+
+#: ../contents/ui/configCalendar.qml
+msgid "Show borders"
+msgstr ""
+
+#: ../contents/ui/configCalendar.qml
+msgid "Available Plugins:"
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "At least one time zone needs to be enabled. 'Local' was enabled automatically."
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Search Time Zones"
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "City"
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Region"
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Comment"
+msgstr ""
+
+#: ../contents/ui/configTimeZones.qml
+msgid "Switch time zone with mouse wheel"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "Adjust Date and Time..."
+msgstr ""
+
+#: ../contents/ui/main.qml
+msgid "Set Time Format..."
+msgstr ""
